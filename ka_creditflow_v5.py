@@ -1339,7 +1339,7 @@ def render_communications():
 
     bc1, bc2 = st.columns(2)
     with bc1:
-        send_now = st.button("🚀 Send Now", type="primary", use_container_width=True, key="comm_send")
+         send_now = st.button("🚀 Send Now", type="primary", use_container_width=True, key="comm_send",                              disabled=not nca["compliant"])
     with bc2:
         schedule = st.button("📅 Schedule for Next Window", use_container_width=True,
                              key="comm_sched", disabled=nca["compliant"])
