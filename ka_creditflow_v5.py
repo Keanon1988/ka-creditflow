@@ -1778,6 +1778,7 @@ def render_audit_trail():
     conn.close()
 
 
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAIN APPLICATION
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1801,7 +1802,6 @@ def main():
             "<p style='margin:0;font-size:0.9em;color:#888;'>v5.5 — Enterprise Edition</p>"
             "<p style='margin:2px 0 0 0;font-size:0.75em;color:#aaa;'>by KA Legacy</p>"
             "</div>", unsafe_allow_html=True)
-              
 
         st.markdown(f"👤 **{DEFAULT_USER}**")
         st.caption(f"🕐 {get_sast_now()} SAST")
@@ -1823,29 +1823,29 @@ def main():
             "📋 Audit Trail",
         ]
 
-       # Enhancement modules
-      if ENHANCEMENTS_AVAILABLE:
-        nav_options.append("─────────────")
-        nav_options.extend([
-          "⚙️ Dunning Engine",
-          "💰 Cash Flow Forecast",
-          "📈 Payment Analytics",
-          "📁 Data Import/Export",
-          "📝 Write-Offs",
-          "💹 Interest Calculator",
-          "📋 Credit Applications",
-          "🎯 KPI Targets",
-        ])
+        # Enhancement modules
+        if ENHANCEMENTS_AVAILABLE:
+            nav_options.append("─────────────")
+            nav_options.extend([
+                "⚙️ Dunning Engine",
+                "💰 Cash Flow Forecast",
+                "📈 Payment Analytics",
+                "📁 Data Import/Export",
+                "📝 Write-Offs",
+                "💹 Interest Calculator",
+                "📋 Credit Applications",
+                "🎯 KPI Targets",
+            ])
 
-      if V6_AVAILABLE:
-        nav_options.extend([
-          "🔄 Automated Workflows",
-          "⚖️ Legal Compliance",
-          "📄 Document Center",
-          "🔒 POPIA Compliance",
-          "🔮 Predictive Engine",
-          "👥 User Management",
-        ])
+        if V6_AVAILABLE:
+            nav_options.extend([
+                "🔄 Automated Workflows",
+                "⚖️ Legal Compliance",
+                "📄 Document Center",
+                "🔒 POPIA Compliance",
+                "🔮 Predictive Engine",
+                "👥 User Management",
+            ])
 
         nav = st.radio("Navigation", nav_options, key="main_nav")
 
@@ -1905,7 +1905,7 @@ def main():
         render_credit_applications()
     elif nav == "🎯 KPI Targets" and ENHANCEMENTS_AVAILABLE:
         render_kpi_targets()
-              elif nav == "🔄 Automated Workflows" and V6_AVAILABLE:
+    elif nav == "🔄 Automated Workflows" and V6_AVAILABLE:
         render_workflows()
     elif nav == "⚖️ Legal Compliance" and V6_AVAILABLE:
         render_legal_compliance()
