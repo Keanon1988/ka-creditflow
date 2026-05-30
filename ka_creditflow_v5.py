@@ -1823,29 +1823,29 @@ def main():
             "📋 Audit Trail",
         ]
 
-        # Enhancement modules
+     # Enhancement modules
       if ENHANCEMENTS_AVAILABLE:
-            nav_options.append("─────────────")
-            nav_options.extend([
-                "⚙️ Dunning Engine",
-                "💰 Cash Flow Forecast",
-                "📈 Payment Analytics",
-                "📁 Data Import/Export",
-                "📝 Write-Offs",
-                "💹 Interest Calculator",
-                "📋 Credit Applications",
-                "🎯 KPI Targets",
-            ])
+        nav_options.append("─────────────")
+        nav_options.extend([
+          "⚙️ Dunning Engine",
+          "💰 Cash Flow Forecast",
+          "📈 Payment Analytics",
+          "📁 Data Import/Export",
+          "📝 Write-Offs",
+          "💹 Interest Calculator",
+          "📋 Credit Applications",
+          "🎯 KPI Targets",
+        ])
 
-        if V6_AVAILABLE:
-            nav_options.extend([
-                "🔄 Automated Workflows",
-                "⚖️ Legal Compliance",
-                "📄 Document Center",
-                "🔒 POPIA Compliance",
-                "🔮 Predictive Engine",
-                "👥 User Management",
-            ])
+      if V6_AVAILABLE:
+        nav_options.extend([
+          "🔄 Automated Workflows",
+          "⚖️ Legal Compliance",
+          "📄 Document Center",
+          "🔒 POPIA Compliance",
+          "🔮 Predictive Engine",
+          "👥 User Management",
+        ])
 
         nav = st.radio("Navigation", nav_options, key="main_nav")
 
