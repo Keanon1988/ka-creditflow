@@ -1,15 +1,5 @@
 """
-================================================================================
-KA CreditFlow v5.0 — Enterprise Credit Risk & Collections Management Platform
-================================================================================
-Author  : KA Legacy (Founded by Keanon Apollos)
-Date    : 2026-05-29
-Purpose : ERP-grade credit risk assessment, collections management, and
-          accounts receivable platform inspired by SAP FSCM, Oracle Advanced
-          Collections, HighRadius, and Sage Intacct.
-
-          "Stewarding resources toward a land of milk and honey."
-================================================================================
+KA CreditFlow v5.5 — Enterprise Edition
 """
 
 import streamlit as st
@@ -20,6 +10,7 @@ import plotly.graph_objects as go
 import json
 import math
 from datetime import datetime, timezone, timedelta, date
+
 # Enhancement modules (v5.5)
 try:
     from ka_creditflow_enhancements import (
@@ -31,7 +22,23 @@ try:
 except ImportError:
     ENHANCEMENTS_AVAILABLE = False
 
-
+# v6.0 modules
+try:
+    from ka_creditflow_auth import (
+        init_auth_db, render_login, render_user_management,
+        render_sidebar_user_info, is_authenticated, get_current_user,
+        get_allowed_modules, logout
+    )
+    from ka_creditflow_workflows import render_workflows, init_workflows_db
+    from ka_creditflow_legal import render_legal_compliance, init_legal_db
+    from ka_creditflow_pdf import render_document_center
+    from ka_creditflow_popia_predictive import (
+        render_popia_compliance, render_predictive_engine,
+        init_popia_predictive_db
+    )
+    V6_AVAILABLE = True
+except ImportError:
+    V6_AVAILABLE = False
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONSTANTS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1780,6 +1787,11 @@ def main():
     seed_data()
     if ENHANCEMENTS_AVAILABLE:
         init_enhancements_db()
+    if V6_AVAILABLE:
+        init_auth_db()
+        init_workflows_db()
+        init_legal_db()
+        init_popia_predictive_db()
 
     # ── Sidebar ──────────────────────────────────────────────────────────
     with st.sidebar:
@@ -1789,7 +1801,7 @@ def main():
             "<p style='margin:0;font-size:0.9em;color:#888;'>v5.5 — Enterprise Edition</p>"
             "<p style='margin:2px 0 0 0;font-size:0.75em;color:#aaa;'>by KA Legacy</p>"
             "</div>", unsafe_allow_html=True)
-        st.divider()
+              
 
         st.markdown(f"👤 **{DEFAULT_USER}**")
         st.caption(f"🕐 {get_sast_now()} SAST")
@@ -1823,6 +1835,16 @@ def main():
                 "💹 Interest Calculator",
                 "📋 Credit Applications",
                 "🎯 KPI Targets",
+            ])
+
+              if V6_AVAILABLE:
+            nav_options.extend([
+                "🔄 Automated Workflows",
+                "⚖️ Legal Compliance",
+                "📄 Document Center",
+                "🔒 POPIA Compliance",
+                "🔮 Predictive Engine",
+                "👥 User Management",
             ])
 
         nav = st.radio("Navigation", nav_options, key="main_nav")
@@ -1883,6 +1905,18 @@ def main():
         render_credit_applications()
     elif nav == "🎯 KPI Targets" and ENHANCEMENTS_AVAILABLE:
         render_kpi_targets()
+              elif nav == "🔄 Automated Workflows" and V6_AVAILABLE:
+        render_workflows()
+    elif nav == "⚖️ Legal Compliance" and V6_AVAILABLE:
+        render_legal_compliance()
+    elif nav == "📄 Document Center" and V6_AVAILABLE:
+        render_document_center()
+    elif nav == "🔒 POPIA Compliance" and V6_AVAILABLE:
+        render_popia_compliance()
+    elif nav == "🔮 Predictive Engine" and V6_AVAILABLE:
+        render_predictive_engine()
+    elif nav == "👥 User Management" and V6_AVAILABLE:
+        render_user_management()
     elif nav == "─────────────":
         st.info("Please select a module from the sidebar.")
 
