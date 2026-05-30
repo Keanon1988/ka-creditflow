@@ -1824,7 +1824,7 @@ def main():
         ]
 
         # Enhancement modules
-        if ENHANCEMENTS_AVAILABLE:
+      if ENHANCEMENTS_AVAILABLE:
             nav_options.append("─────────────")
             nav_options.extend([
                 "⚙️ Dunning Engine",
@@ -1837,7 +1837,7 @@ def main():
                 "🎯 KPI Targets",
             ])
 
-              if V6_AVAILABLE:
+        if V6_AVAILABLE:
             nav_options.extend([
                 "🔄 Automated Workflows",
                 "⚖️ Legal Compliance",
