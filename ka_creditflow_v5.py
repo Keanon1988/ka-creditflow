@@ -1823,7 +1823,7 @@ def main():
             "📋 Audit Trail",
         ]
 
-     # Enhancement modules
+       # Enhancement modules
       if ENHANCEMENTS_AVAILABLE:
         nav_options.append("─────────────")
         nav_options.extend([
