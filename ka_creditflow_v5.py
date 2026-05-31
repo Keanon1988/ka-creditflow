@@ -1920,7 +1920,7 @@ def main():
         render_predictive_engine()
     elif nav == "👥 User Management" and V6_AVAILABLE:
         render_user_management()
-        elif nav == "🏦 Credit Engine v2" and V6_AVAILABLE:
+    elif nav == "🏦 Credit Engine v2" and V6_AVAILABLE:
         render_credit_engine_v2()
     elif nav == "─────────────":
         st.info("Please select a module from the sidebar.")
