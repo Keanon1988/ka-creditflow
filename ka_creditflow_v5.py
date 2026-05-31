@@ -36,6 +36,7 @@ try:
         render_popia_compliance, render_predictive_engine,
         init_popia_predictive_db
     )
+    from ka_creditflow_credit_engine_v2 import render_credit_engine_v2, init_credit_engine_v2_db
     V6_AVAILABLE = True
 except ImportError:
     V6_AVAILABLE = False
@@ -1793,6 +1794,7 @@ def main():
         init_workflows_db()
         init_legal_db()
         init_popia_predictive_db()
+        init_credit_engine_v2_db()
 
     # ── Sidebar ──────────────────────────────────────────────────────────
     with st.sidebar:
@@ -1845,6 +1847,7 @@ def main():
                 "🔒 POPIA Compliance",
                 "🔮 Predictive Engine",
                 "👥 User Management",
+                "🏦 Credit Engine v2",
             ])
 
         nav = st.radio("Navigation", nav_options, key="main_nav")
@@ -1917,6 +1920,8 @@ def main():
         render_predictive_engine()
     elif nav == "👥 User Management" and V6_AVAILABLE:
         render_user_management()
+        elif nav == "🏦 Credit Engine v2" and V6_AVAILABLE:
+        render_credit_engine_v2()
     elif nav == "─────────────":
         st.info("Please select a module from the sidebar.")
 
