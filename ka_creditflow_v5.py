@@ -1876,8 +1876,7 @@ def main():
         render_clients()
     elif nav == "🧾 Invoices":
         render_invoices()
-    elif nav == "🛡️ Credit Engine":
-        render_credit_engine()
+     
     elif nav == "📋 Worklist":
         render_worklist()
     elif nav == "📝 Notes":
