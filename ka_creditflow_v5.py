@@ -1816,7 +1816,7 @@ def main():
        if V6_AVAILABLE and is_authenticated():
             render_sidebar_user_info()
         else:
-            st.markdown(f"👤 **{DEFAULT_USER}**")
+           st.markdown(f"👤 **{DEFAULT_USER}**")
         st.caption(f"🕐 {get_sast_now()} SAST")
 
         st.divider()
