@@ -1816,7 +1816,6 @@ def main():
             "📊 Dashboard",
             "🏢 Clients",
             "🧾 Invoices",
-            "🛡️ Credit Engine",
             "📋 Worklist",
             "📝 Notes",
             "📨 Communications",
