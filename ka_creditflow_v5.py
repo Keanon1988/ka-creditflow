@@ -1780,6 +1780,8 @@ def render_audit_trail():
 
 
 
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAIN APPLICATION
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1804,7 +1806,7 @@ def main():
             render_login()
             return
 
-# — Sidebar ————————————————————————————————————————
+    # —— Sidebar ————————————————————————————————————————————————————
     with st.sidebar:
         st.markdown(
             "<div style='text-align:center;padding:10px 0;'>"
@@ -1887,7 +1889,6 @@ def main():
         render_clients()
     elif nav == "🧾 Invoices":
         render_invoices()
-     
     elif nav == "📋 Worklist":
         render_worklist()
     elif nav == "📝 Notes":
