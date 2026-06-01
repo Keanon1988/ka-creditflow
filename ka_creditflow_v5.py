@@ -1804,7 +1804,7 @@ def main():
             render_login()
             return
 
-     # ── Sidebar ──────────────────────────────────────────────────────────
+# — Sidebar ————————————————————————————————————————
     with st.sidebar:
         st.markdown(
             "<div style='text-align:center;padding:10px 0;'>"
@@ -1813,10 +1813,10 @@ def main():
             "<p style='margin:2px 0 0 0;font-size:0.75em;color:#aaa;'>by KA Legacy</p>"
             "</div>", unsafe_allow_html=True)
 
-       if V6_AVAILABLE and is_authenticated():
+        if V6_AVAILABLE and is_authenticated():
             render_sidebar_user_info()
         else:
-           st.markdown(f"👤 **{DEFAULT_USER}**")
+            st.markdown(f"👤 **{DEFAULT_USER}**")
         st.caption(f"🕐 {get_sast_now()} SAST")
 
         st.divider()
